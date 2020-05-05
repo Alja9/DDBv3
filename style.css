@@ -1,0 +1,627 @@
+/*---------------------------------------
+   Global
+-----------------------------------------*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+[aos="fade"] {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+[aos="fade"].aos-animate {
+    opacity: 1;
+}
+
+p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+/*---------------------------------------
+   Navbar
+-----------------------------------------*/
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate3d(0, 0, 0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(0.89);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+}
+
+.logo {
+    line-height: 60px;
+    position: fixed;
+    float: left;
+    margin: 16px 46px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 6px;
+    cursor: default;
+    animation-name: bounceIn;
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.logo:hover {
+    cursor: default;
+}
+
+nav {
+    z-index: 99999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    line-height: 60px;
+}
+
+nav ul {
+    line-height: 60px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+    padding-right: 40px;
+}
+
+nav.merah ul {
+    background: #ec232b;
+    transition: background-color 200ms linear;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    animation-name: bounceIn;
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;    
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+}
+
+/*DDBGTS*/
+.ddbgts{
+    background-color: red; 
+    border-radius: 0px 0px 200px 200px; 
+    -moz-border-radius: 0px 0px 200px 200px; 
+    -webkit-border-radius: 0px 0px 200px 200px; 
+    border: 0px solid #000000;
+}
+
+.ddbgts:hover,
+nav.merah ul .ddbgts:hover{
+    background-image: linear-gradient(to bottom, #631463, #581258, #4c114c, #420f42, #370d37);
+    cursor: pointer;
+}
+
+.ddbgts a{
+    font-size: 20px;
+}
+
+.ddbgts:hover a,
+nav.merah ul .ddbgts:hover a{
+    color: #fff673;
+}
+
+.ddbgts:hover:after {
+    background: transparent;
+}
+
+nav.merah ul .ddbgts{
+    background-image: linear-gradient(to bottom, #ec232b, #b51f2a, #801b24, #4d171b, #1f0d0d);
+    border-radius: 0px 0px 0px 0px; 
+    -moz-border-radius: 0px 0px 0px 0px; 
+    -webkit-border-radius: 0px 0px 0px 0px; 
+    border: 0px solid #000000;
+    transition: border-radius 800ms linear;
+}
+
+nav.merah ul .ddbgts a{
+    color: white;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    padding: auto;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: .5s ease-in;
+    -moz-transition: .5s ease-in;
+    -o-transition: .5s ease-in;
+    transition: .5s ease-in;
+}
+
+li:after {
+    content: '';
+    display: block;
+    margin: auto;
+    width: 0px;
+    height: 3px;
+    transition: width .3s ease;
+}
+
+li:hover:after {
+    width: 50%;
+    background: white;
+}
+
+#iconNavMenu {
+    display: none;
+}
+
+
+
+@media(max-width: 990px) {
+
+    .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+    }
+
+    nav {
+        background: #ec232b;
+    }
+
+    nav ul {
+        max-height: 0px;
+    }
+
+    .showing {
+        z-index: 99999;
+        max-height: 100%;
+        width: 100%;
+        height: 1000px;
+    }
+
+    .showing li {
+        margin: 12px 30px;
+    }
+
+    .showing li:hover:after {
+        width: 50%;
+        background: transparent;
+    }
+
+    .showing a {
+        transition: 5s;
+        animation-name: bounceIn;
+        animation-duration: 1000ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 5px;
+        text-align: left;
+    }
+
+    #iconNavMenu {
+        display: block;
+        margin: 32px 50px 16px 16px;
+        width: 30px;
+        height: 35px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        float: right;
+        right: 0px;
+        animation-name: bounceIn;
+        animation-duration: 1000ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    #iconNavMenu span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 50%;
+        background: white;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+
+    #iconNavMenu span:nth-child(even) {
+        left: 50%;
+        border-radius: 0 9px 9px 0;
+    }
+
+    #iconNavMenu span:nth-child(odd) {
+        left: 0px;
+        border-radius: 9px 0 0 9px;
+    }
+
+    #iconNavMenu span:nth-child(1),
+    #iconNavMenu span:nth-child(2) {
+        top: 0px;
+    }
+
+    #iconNavMenu span:nth-child(3),
+    #iconNavMenu span:nth-child(4) {
+        top: 10px;
+    }
+
+    #iconNavMenu span:nth-child(5),
+    #iconNavMenu span:nth-child(6) {
+        top: 20px;
+    }
+
+    #iconNavMenu.open span:nth-child(1),
+    #iconNavMenu.open span:nth-child(6) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    #iconNavMenu.open span:nth-child(2),
+    #iconNavMenu.open span:nth-child(5) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    #iconNavMenu.open span:nth-child(1) {
+        left: 0px;
+        top: 9px;
+    }
+
+    #iconNavMenu.open span:nth-child(2) {
+        left: calc(50% - 5px);
+        top: 9px;
+    }
+
+    #iconNavMenu.open span:nth-child(3) {
+        left: -50%;
+        opacity: 0;
+    }
+
+    #iconNavMenu.open span:nth-child(4) {
+        left: 100%;
+        opacity: 0;
+    }
+
+    #iconNavMenu.open span:nth-child(5) {
+        left: 0px;
+        top: 19px;
+    }
+
+    #iconNavMenu.open span:nth-child(6) {
+        left: calc(50% - 5px);
+        top: 19px;
+    }
+
+}
+
+/*---------------------------------------
+   Header
+-----------------------------------------*/
+header {
+    width: 100%;
+    height: 100vh;
+    background: url('gambar/UnivBrawijaya.jpg') no-repeat 50% 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.logoDDBH {
+    max-width: 80%;
+    height: auto;
+    margin-top: 12%;
+}
+
+@media(max-width: 990px) {
+    .logoDDBH {
+        margin-top: 30%;
+    }
+}
+
+svg {
+    margin-top: -16%;
+    width: 100%;
+    height: 25vw;
+}
+
+.contentBasaBasi {
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/*---------------------------------------
+   Profil
+-----------------------------------------*/
+#PROFIL {
+    color: white;
+    margin-bottom: 60px;
+}
+
+#profil {
+    font-weight: bold;
+    background-image:
+        linear-gradient(123deg, rgba(158, 63, 63, 0.463) 2%, rgba(0, 0, 0, 0.5) 2%),
+        linear-gradient(176deg, rgba(181, 66, 66, 0.197) 53%, rgba(71, 1, 1, 0.5) 30%),
+        linear-gradient(124deg, rgba(232, 51, 51, 0.796) 57%, rgba(0, 0, 0, 0.5) 89%),
+        linear-gradient(123deg, rgb(242, 33, 33) 59%, rgba(0, 0, 0, 0.5) 14%);
+    background-blend-mode: normal, overlay, hard-light, lighten;
+}
+
+#kontenProfil {
+    padding: 0;
+    box-shadow: 0 0 10px hsl(0, 0%, 0%, 0.2);
+}
+
+#kontenProfil h1 {
+    letter-spacing: 2px;
+}
+
+#kontenProfil hr {
+    text-align: center;
+    width: 80%;
+    background-color: white;
+    height: 5px;
+}
+
+.sejarahnya,
+.partisipasinya {
+    padding: 30px;
+    margin: 0;
+    color: white;
+}
+
+#counterUser {
+    padding-top: 100px;
+}
+
+#kontenProfil p {
+    margin: 0;
+}
+
+.counting1,
+.counting2 {
+    padding: 20px;
+    color: #ec232b;
+}
+
+.counting1 h2,
+.counting2 h2 {
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+/*---------------------------------------
+   Gallery
+-----------------------------------------*/
+#GALLERY {
+    color: white;
+    margin-bottom: 60px;
+}
+
+/*SlideShow*/
+.jssorl-009-spin img {
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes jssorl-009-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.jssorb031 {
+    position: absolute;
+}
+
+.jssorb031 .i {
+    position: absolute;
+    cursor: pointer;
+}
+
+.jssorb031 .i .b {
+    fill: #000;
+    fill-opacity: 0.5;
+    stroke: #fff;
+    stroke-width: 1200;
+    stroke-miterlimit: 10;
+    stroke-opacity: 0.3;
+}
+
+.jssorb031 .i:hover .b {
+    fill: #fff;
+    fill-opacity: .7;
+    stroke: #000;
+    stroke-opacity: .5;
+}
+
+.jssorb031 .iav .b {
+    fill: #ec232b;
+    stroke: #000;
+    fill-opacity: 1;
+}
+
+.jssorb031 .i.idn {
+    opacity: .3;
+}
+
+.jssora051 {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+}
+
+.jssora051 .a {
+    fill: none;
+    stroke: #ec232b;
+    stroke-width: 2000;
+    stroke-miterlimit: 10;
+}
+
+.jssora051:hover {
+    opacity: .8;
+}
+
+.jssora051.jssora051dn {
+    opacity: .5;
+}
+
+.jssora051.jssora051ds {
+    opacity: .3;
+    pointer-events: none;
+}
+
+/*Lokasi*/
+#Lokasi {
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.logoUB {
+    width: 50px;
+    height: 65px;
+    padding-bottom: 10px;
+}
+
+.contentUB {
+    background: url('gambar/gradientUB.jpg') no-repeat 50% 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/*---------------------------------------
+   Footer
+-----------------------------------------*/
+.footer {
+    background: #ec232b;
+    padding-top: 20px;
+}
+
+.teksCR p {
+    margin-top: 30px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+
+.menuFooter ul{
+    margin-bottom: 0;
+}
+
+.menuFooter li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.menuFooter li:hover:after {
+    background: transparent;
+}
+
+.menuFooter li a {
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+.menuFooter li a:hover {
+    color: black;
+}
+
+@media(max-width: 990px) {
+    .menuFooter{
+        margin-top: 20px;
+    }
+
+    .menuFooter ul{
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .menuFooter ul li{
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
